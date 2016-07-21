@@ -1,9 +1,11 @@
 USE HospitalStudy;
+
+
 CREATE PROC AddWard
 	@Ward_Name AS VARCHAR(20),
 	@Ward_Location AS VARCHAR(20),
-	@Beds_Avaliable AS INT,
-	@Extention_Number AS INT,
+	@Beds_Available AS INT,
+	@Extension_Number AS INT,
 	@Ward_Type AS VARCHAR(30)
 AS BEGIN
 	-- If try fails then Ward already exists
@@ -13,7 +15,7 @@ AS BEGIN
 			EXEC AddWardType @Type_Name = @Ward_Type, @Type_Id = @wt OUTPUT;
 			
 			INSERT INTO Wards (wardName, wardLocation, numberOfBeds, extNum, wardTypeId)
-			VALUES (@Ward_Name, @Ward_Location, @Beds_Avaliable, @Extention_Number, @wt);
+			VALUES (@Ward_Name, @Ward_Location, @Beds_Available, @Extension_Number, @wt);
 		--COMMIT TRANSACTION
 	END TRY
 
