@@ -59,12 +59,11 @@ AS BEGIN
   END CATCH
   RETURN;
 END
-SELECT * FROM Positions
 
-ALTER TABLE Positions
-ADD baseSalary MONEY;
+
 BEGIN TRANSACTION 
 DECLARE @t AS INT;
 EXEC AddPosition @Position = 'Junior Nurse', @Base_Salary = 10000, @Type_Id = @t OUTPUT;
+SELECT @t;
 ROLLBACK
 	
