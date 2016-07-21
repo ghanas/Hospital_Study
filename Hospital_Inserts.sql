@@ -36,10 +36,12 @@ CREATE TABLE WardStaff (
   staffId INT NOT NULL, -- FK to staff
   wardId INT NOT NULL, -- FK to Ward
 );
+
 CREATE TABLE Positions(
   positionId INT IDENTITY NOT NULL
 	CONSTRAINT PK_Positions_positionId PRIMARY KEY (positionId),
-  position VARCHAR(50) NOT NULL,
+  position VARCHAR(50) NOT NULL
+	CONSTRAINT UN_Positions_position UNIQUE,
   baseSalary MONEY
 );
 CREATE TABLE Qualifications (
