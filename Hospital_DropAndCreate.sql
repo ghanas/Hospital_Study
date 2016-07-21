@@ -1,0 +1,2 @@
+DROP DATABASE HospitalStudy;
+CREATE DATABASE HospitalStudy;
